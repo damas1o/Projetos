@@ -1,0 +1,41 @@
+'''
+Autor: Damasio_dev
+Versão: 1.0
+Coleção: Primeiros códigos (First Codes)
+'''
+#        Calculadora de custo final
+
+#FASE DE DEFINIÇÃO DE VALORES ADICIONAIS (IMPOSTOS)
+imposto = str(input('Seu calculo possui impostos a serem adicionados? (Digite S ou N)  '))
+imposto_porcent=0
+
+if imposto == 'N' or 'n':
+    resultado = print('Certo, vamos prosseguir!')
+elif imposto == 'S' or 's':
+    resultado = print('Por favor, escolha quais impostos:')
+    imposto2 = input('Para IPI, digite "1"; Para ST, digite "2"; Para outros impostos ou para mais de um imposto, digite "3".  ')
+    
+    if imposto2 == '1':
+        imposto_porcent = input('Digite a porcentagem do IPI: ')
+    elif imposto2 == '2':
+        imposto_porcent = input('Digite a porcentagem do ST: ')
+    elif imposto2 == '3':
+        imposto_porcent = input('Digite a porcentagem do imposto (para mais de um, digite a soma): ')
+    else: 
+        print('COMANDO INVÁLIDO!')
+
+
+else:
+    print('COMANDO INVÁLIDO!')
+
+
+x = float(input('Qual o valor unitário de custo do produto?  '))
+y = float(input('Qual o valor total do produto?  '  ))
+z = float(input('Qual o valor do frete?  '))
+rateio = (x/y)*z
+custo_final = x+rateio
+
+if imposto_porcent != 0:
+    custo_final = custo_final+(custo_final*((float(imposto_porcent))/100))
+
+print(f'O valor do rateio do frete é R${rateio:.2f} e o custo final do produto é de R${custo_final:.2f}')
